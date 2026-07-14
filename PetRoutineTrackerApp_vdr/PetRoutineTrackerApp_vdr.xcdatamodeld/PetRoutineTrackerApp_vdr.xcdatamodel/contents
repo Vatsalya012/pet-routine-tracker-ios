@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21H1123" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pet" representedClassName="Pet" syncable="YES" codeGenerationType="class">
+        <attribute name="petDetails" optional="YES" attributeType="String"/>
+        <attribute name="petId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="petName" optional="YES" attributeType="String"/>
+        <attribute name="petPhotoData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="petType" optional="YES" attributeType="String"/>
+        <relationship name="routines" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Routine" inverseName="pet" inverseEntity="Routine"/>
+    </entity>
+    <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
+        <attribute name="repeatRule" optional="YES" attributeType="String"/>
+        <attribute name="routineId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="routineNote" optional="YES" attributeType="String"/>
+        <attribute name="routineTitle" optional="YES" attributeType="String"/>
+        <attribute name="timeOfDay" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="pet" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pet" inverseName="routines" inverseEntity="Pet"/>
+    </entity>
+</model>
